@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2025 DDSE Foundation
+Licensed under the MIT License
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Decision-Driven Software Engineering (DDSE) Foundation - Preserving Human Authority in AI-Assisted Development">
+    <meta name="keywords" content="DDSE, Decision-Driven Software Engineering, AI-assisted development, technical decisions, software architecture">
+    <meta name="author" content="DDSE Foundation">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DDSE Foundation - Decision-Driven Software Engineering">
+    <meta property="og:description" content="Where Human Intelligence and Artificial Intelligence Collaborate in Software Development">
+    <meta property="og:url" content="https://ddse.github.io">
+    
+    <title>DDSE Foundation - Decision-Driven Software Engineering</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .badges {
+            margin: 30px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .badge img {
+            height: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* Why DDSE Section */
+        .why-ddse {
+            background-color: var(--light-gray);
+        }
+        
+        .principle-quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 30px;
+            background-color: var(--white);
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 5px;
+        }
+        
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .problem-box, .solution-box {
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .problem-box {
+            background-color: #fdf2f2;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .solution-box {
+            background-color: #f0f9f0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .problem-box h3, .solution-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .problem-list, .solution-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .problem-list li, .solution-list li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .problem-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
+        .solution-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Core Concepts */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .concept-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .concept-card h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .concept-card .acronym {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Benefits */
+        .benefits {
+            background-color: var(--light-gray);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .benefit-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Tools */
+        .tools-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .tool-card {
+            background-color: var(--light-gray);
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .tool-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .tool-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .tool-features li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .tool-features li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .code-example {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        /* Community */
+        .community {
+            background-color: var(--light-gray);
+        }
+        
+        .governance-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .governance-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .governance-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .position-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .status-filled {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-open {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin: 8px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 30px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .problem-solution {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>DDSE Foundation</h1>
+                <p class="header-subtitle">Where Human Intelligence and Artificial Intelligence Collaborate in Software Development</p>
+                
+                <div class="badges">
+                    <span class="badge">
+                        <img src="https://img.shields.io/badge/DDSE-v1.0-blue.svg" alt="DDSE Version">
+                    </span>
+                    <span class="badge">
+                        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
+                    </span>
+                    <span class="badge">
+                        <img src="https://img.shields.io/badge/community-join-orange.svg" alt="Join Community">
+                    </span>
+                </div>
+                
+                <a href="https://github.com/ddse-foundation/ddse-foundation" class="cta-button">Explore the Foundation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#why-ddse">Why DDSE</a></li>
+                <li><a href="#concepts">Core Concepts</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#getting-started">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Why DDSE Section -->
+    <section id="why-ddse" class="why-ddse">
+        <div class="container">
+            <h2 class="section-title">Why DDSE Now?</h2>
+            
+            <div class="principle-quote">
+                "In the AI era, human value lies not in being the exclusive generator of solutions, but in being the authoritative decision-maker who guides generation toward human-aligned outcomes."
+            </div>
+            
+            <p style="font-size: 1.2rem; text-align: center; margin-bottom: 40px;">
+                <strong>AI can generate code faster than humans—but it can't make intelligent decisions about what should be built or why.</strong> Without decision governance, AI-assisted development creates a dangerous gap: rapid implementation without human authority over architectural direction.
+            </p>
+            
+            <div class="problem-solution">
+                <div class="problem-box">
+                    <h3>The Critical Problems</h3>
+                    <ul class="problem-list">
+                        <li>AI generates code without understanding your architectural decisions and constraints</li>
+                        <li>Teams lose decision context as AI accelerates development cycles</li>
+                        <li>Technical debt compounds as AI suggestions conflict with undocumented design principles</li>
+                        <li>Human decision authority gets eroded by the speed of AI implementation</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>The DDSE Solution</h3>
+                    <p>DDSE preserves human decision authority while unleashing AI implementation power. By making technical decisions explicit and structured, you create "decision memory" that:</p>
+                    <ul class="solution-list">
+                        <li>Guides AI tools with your authorized architectural constraints</li>
+                        <li>Preserves human authority over system evolution and direction</li>
+                        <li>Accelerates AI effectiveness through rich decision context</li>
+                        <li>Prevents architectural drift caused by uninformed AI suggestions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.1rem; margin-top: 40px; font-style: italic;">
+                <em>Make your decisions AI-ready before AI makes decisions for you.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Concepts -->
+    <section id="concepts">
+        <div class="container">
+            <h2 class="section-title">Core Concepts</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
+                DDSE introduces <strong>Technical Decision Records (TDRs)</strong> as structured artifacts that capture technical choices with AI-ready context:
+            </p>
+            
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <div class="acronym">MDD</div>
+                    <h3>Major Design Decision</h3>
+                    <p>Strategic architectural and technology choices that define system direction and approach.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="acronym">ADR</div>
+                    <h3>Architectural Decision Record</h3>
+                    <p>System architecture and design decisions that establish structural patterns and constraints.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="acronym">EDR</div>
+                    <h3>Engineering Decision Record</h3>
+                    <p>Development practices and tool decisions that guide implementation approaches.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="acronym">IDR</div>
+                    <h3>Implementation Decision Record</h3>
+                    <p>Component and code-level decisions that document specific implementation choices.</p>
+                </div>
+                
+                <div class="concept-card">
+                    <div class="acronym">TDM</div>
+                    <h3>Technical Decision Memo</h3>
+                    <p>Lightweight decision documentation for rapid communication and alignment.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">All TDR Templates Include:</h3>
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <li>📋 <strong>YAML frontmatter</strong> for structured metadata</li>
+                    <li>🤖 <strong>AI context sections</strong> for intelligent tool integration</li>
+                    <li>🔗 <strong>Cross-reference support</strong> for decision traceability</li>
+                    <li>✅ <strong>Validation-ready structure</strong> for automated compliance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Key Benefits</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <h3>Reduced Architectural Drift</h3>
+                        <p>Explicit decisions prevent uncontrolled system evolution and maintain architectural coherence over time.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤖</div>
+                    <div class="benefit-content">
+                        <h3>AI-Enhanced Development</h3>
+                        <p>AI tools work intelligently within documented decision context, producing better aligned solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">📚</div>
+                    <div class="benefit-content">
+                        <h3>Preserved Decision Knowledge</h3>
+                        <p>Rationale and trade-offs are captured for future reference, creating institutional memory.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔍</div>
+                    <div class="benefit-content">
+                        <h3>Enhanced Traceability</h3>
+                        <p>Clear links between decisions, implementation, and outcomes enable better system understanding.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-content">
+                        <h3>Faster Team Onboarding</h3>
+                        <p>New members understand system evolution and constraints through documented decision history.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🧠</div>
+                    <div class="benefit-content">
+                        <h3>Human-AI Collaboration</h3>
+                        <p>Preserve human decision authority while leveraging AI implementation capabilities effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">Tools & Validation</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
+                DDSE includes comprehensive tooling for automated validation and compliance.
+            </p>
+            
+            <div class="tools-showcase">
+                <div class="tool-card">
+                    <h3>TDR Validator</h3>
+                    <p>Python-based validation engine for ensuring TDR compliance and quality.</p>
+                    
+                    <ul class="tool-features">
+                        <li>Validates YAML frontmatter and required sections</li>
+                        <li>Checks cross-references and AI context sections</li>
+                        <li>Supports all TDR types with type-specific rules</li>
+                        <li>CLI interface with text and JSON output formats</li>
+                    </ul>
+                    
+                    <div class="code-example">
+# Validate a single TDR file
+python tools/tdr_validator.py adr-template.md
+
+# Validate directory with strict mode
+python tools/tdr_validator.py docs/ --strict
+
+# Generate JSON validation report
+python tools/tdr_validator.py docs/ --output json
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>ANTLR4 Grammar</h3>
+                    <p>Complete grammar specification for TDR parsing and language-agnostic validation.</p>
+                    
+                    <ul class="tool-features">
+                        <li>Defines TDR markdown structure for parsing</li>
+                        <li>Enables validator implementations in multiple languages</li>
+                        <li>Supports frontmatter, sections, and cross-references</li>
+                        <li>Foundation for IDE extensions and integrations</li>
+                    </ul>
+                    
+                    <div class="code-example">
+grammar TDRGrammar;
+
+// Top-level TDR document structure
+tdr: frontmatter content EOF;
+
+// YAML frontmatter section
+frontmatter: FRONTMATTER_START 
+            frontmatterContent 
+            FRONTMATTER_END;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section id="community" class="community">
+        <div class="container">
+            <h2 class="section-title">Community & Governance</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
+                The DDSE Foundation operates through collaborative governance with multiple ways to participate.
+            </p>
+            
+            <div class="governance-structure">
+                <div class="governance-card">
+                    <h3>Founder & Principal Researcher</h3>
+                    <p><strong>Mahmudur R Manna</strong><br>Convener, Researcher, and Principal Architect</p>
+                    <span class="position-status status-filled">Leadership Position</span>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Technical Director</h3>
+                    <p>Lead technical implementation and tooling development across the DDSE ecosystem.</p>
+                    <span class="position-status status-open">Position Open</span>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Community Manager</h3>
+                    <p>Foster community growth, engagement, and knowledge sharing initiatives.</p>
+                    <span class="position-status status-open">Position Open</span>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Industry Liaison</h3>
+                    <p>Bridge DDSE theory with industry practice and enterprise adoption.</p>
+                    <span class="position-status status-open">Position Open</span>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>Academic Advisor</h3>
+                    <p>Provide academic rigor and research direction for DDSE methodology.</p>
+                    <span class="position-status status-open">Position Open</span>
+                </div>
+                
+                <div class="governance-card">
+                    <h3>AI Ethics Advisor</h3>
+                    <p>Ensure DDSE practices align with ethical AI development principles.</p>
+                    <span class="position-status status-open">Position Open</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/community/governance.md" class="cta-button">View Governance Structure</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started">
+        <div class="container">
+            <h2 class="section-title">Getting Started</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">1. Understand the Philosophy</h3>
+                    <p>Read the Core Principles and Manifesto to grasp DDSE foundations.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/principle.md" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ Core Principles</a>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">2. Explore the Specification</h3>
+                    <p>Review the complete DDSE methodology and implementation guidance.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/ddse-spec-v1.0.md" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ DDSE Specification</a>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">3. Try the Templates</h3>
+                    <p>Use our TDR templates for your first technical decisions.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/tree/main/tdr-templates" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ TDR Templates</a>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">4. Validate Your Work</h3>
+                    <p>Run the TDR Validator to ensure compliance and quality.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/tools/tdr_validator.py" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ Validation Tools</a>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">5. Integrate Naturally</h3>
+                    <p>Follow our Agile Integration Guide for seamless adoption.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/integration/agile-integration.md" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ Integration Guide</a>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background-color: var(--light-gray); border-radius: 10px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">6. Join the Community</h3>
+                    <p>Connect through our Community Hub and contribute to DDSE evolution.</p>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/tree/main/community" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">→ Community Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Foundation</h3>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation">GitHub Repository</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/principle.md">Core Principles</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/PREPRINT.md">Academic Research</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/manifesto/ddse-manifesto.md">Manifesto</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/ddse-spec-v1.0.md">DDSE Specification</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/tree/main/tdr-templates">TDR Templates</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/adoption/implementation-guide.md">Implementation Guide</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/integration/agile-integration.md">Agile Integration</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/tools/tdr_validator.py">TDR Validator</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/tools/TDRGrammar.g4">ANTLR4 Grammar</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/tree/main/tools">All Tools</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/community/governance.md">Governance</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/tree/main/community">Community Hub</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/issues">Issues & Discussions</a>
+                    <a href="https://github.com/ddse-foundation/ddse-foundation/blob/main/LICENSE">MIT License</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DDSE Foundation. Licensed under MIT License.</p>
+                <p><em>Preserving Human Authority in AI-Assisted Development</em></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
