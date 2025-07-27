@@ -62,5 +62,3 @@ Join us in making technical decisions visible, valuable, and vital to software s
 *The DDSE Manifesto v1.0*  
 *Published: July 2025*  
 *By the DDSE Foundation Community*
-
-**Sign the Manifesto**: Add your name to the growing list of DDSE advocates at [ddse.org/manifesto](https://ddse.org/manifesto)
