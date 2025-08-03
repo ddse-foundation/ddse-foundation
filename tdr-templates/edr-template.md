@@ -39,7 +39,7 @@ What engineering challenge or process improvement are we addressing?
 
 **Pain Points**: [Specific problems with current approach]
 
-**Team Context**: [Team size, experience level, current tools]
+**Team Context**: [Current experience level, existing tools, and capabilities]
 
 **Project Context**: [Project requirements, timeline, complexity]
 
@@ -84,7 +84,7 @@ Why did we choose this engineering approach?
 
 **Integration**: [How this fits with existing tools and processes]
 
-**Scalability**: [How this scales with team growth]
+**Scalability**: [How this scales with organizational growth]
 
 ## Consequences
 

@@ -2,7 +2,7 @@
 
 > **Where Human Intelligence and Artificial Intelligence Collaborate in Software Development**
 
-[![DDSE Version](https://img.shields.io/badge/DDSE-v1.0-blue.svg)](https://github.com/ddse-org/ddse-foundation)
+[![DDSE Version](https://img.shields.io/badge/DDSE-v1.1-blue.svg)](https://github.com/ddse-org/ddse-foundation)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Community](https://img.shields.io/badge/community-join-orange.svg)](CONTRIBUTING.md)
 
@@ -41,6 +41,7 @@ DDSE preserves human decision authority while unleashing AI implementation power
 - **Want to adopt DDSE?** Follow the [Implementation Guide](adoption/implementation-guide.md)
 - **Looking for templates?** Explore [TDR Templates](tdr-templates/) with AI context support
 - **Integrating with Agile?** See our [Agile Integration Guide](integration/agile-integration.md)
+- **Starting a new project?** Follow the [Greenfield Architecture Pattern](integration/greenfield-architecture-pattern.md)
 - **Need validation tools?** Use our [TDR Validator](tools/tdr_validator.py) and [ANTLR Grammar](tools/TDRGrammar.g4)
 
 ## Repository Structure
@@ -52,12 +53,15 @@ ddse-foundation/
 │   └── author-bio.md          # Founding researcher biography
 ├── principle.md               # Philosophical foundation document
 ├── PREPRINT.md               # Academic research preprint
-├── ddse-spec-v1.0.md         # Complete DDSE specification
+├── specification/               # DDSE methodology specifications  
+│   ├── ddse-spec-v1.1.md      # Complete DDSE specification v1.1
+│   └── ddse-spec-v1.0.md      # Legacy DDSE specification v1.0
 ├── tdr-templates/            # Standard TDR templates with AI context
 │   ├── mdd-template.md       # Major Design Decision template
 │   ├── adr-template.md       # Architectural Decision Record template
 │   ├── edr-template.md       # Engineering Decision Record template
 │   ├── idr-template.md       # Implementation Decision Record template
+│   ├── cdr-template.md       # Contract Decision Record template
 │   ├── tdm-template.md       # Technical Decision Memo template
 │   └── README.md             # Template usage guide
 ├── adoption/                 # Implementation guidance
@@ -83,6 +87,7 @@ DDSE introduces **Technical Decision Records (TDRs)** as structured artifacts th
 - **ADR (Architectural Decision Record)**: System architecture and design decisions  
 - **EDR (Engineering Decision Record)**: Development practices and tool decisions
 - **IDR (Implementation Decision Record)**: Component and code-level decisions
+- **CDR (Contract Decision Record)**: API and integration contract specifications
 - **TDM (Technical Decision Memo)**: Lightweight decision documentation
 
 All TDR templates include:
@@ -104,7 +109,7 @@ All TDR templates include:
 ## Getting Started
 
 1. **Understand the Philosophy**: Read the [Core Principles](principle.md) and [Manifesto](manifesto/ddse-manifesto.md)
-2. **Explore the Specification**: Review the [DDSE Specification](ddse-spec-v1.0.md) for complete methodology
+2. **Explore the Specification**: Review the [DDSE Specification v1.1](specification/ddse-spec-v1.1.md) for complete methodology
 3. **Try the Templates**: Use our [TDR Templates](tdr-templates/) for your first decisions
 4. **Validate Your Work**: Run the [TDR Validator](tools/tdr_validator.py) to ensure compliance
 5. **Integrate Naturally**: Follow our [Agile Integration Guide](integration/agile-integration.md) for seamless adoption
